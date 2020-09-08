@@ -1,0 +1,29 @@
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 10cm,
+	   xlabel=Zeit $t$,
+	   x unit = \si{\milli \second},
+	   grid=major,
+        xmin=0,
+        xmax=500,
+		ymin=-10,
+		ymax=10,
+		legend style={
+            at={(0.29,0.15)},
+            anchor=west}]
+		\addplot[smooth,blue,line width=0.3mm] table[x=second, y=CH1, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+200] {\currfiledir drehzahlsprung.csv};
+		\addlegendentry{$i_{\alpha}$}
+		\addplot[smooth,red,line width=0.3mm] table[x=second, y=CH2, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+200] {\currfiledir drehzahlsprung.csv};
+		\addlegendentry{$i_{\beta}$}
+		\addplot[smooth,green,line width=0.3mm] table[x=second, y=CH3, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+200] {\currfiledir drehzahlsprung.csv};
+		\addlegendentry{$\omega_m$}
+		\addplot[smooth,orange,line width=0.3mm] table[x=second, y=CH4, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+200] {\currfiledir drehzahlsprung.csv};
+		\addlegendentry{$\gamma_m$}
+		\end{axis}
+	\end{tikzpicture}
+    \caption{Zeitverlauf der Ströme, des Winkels und der Drehzahl beim Drehzahlsprung im Sinus-Betrieb.}
+    \label{fig:sprung_sinus}
+\end{figure}

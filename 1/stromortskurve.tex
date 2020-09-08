@@ -1,0 +1,21 @@
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+       width=10cm,
+       height= 10cm,
+	   xlabel= Strom $i_\alpha$,
+	   x unit = \si{\ampere},
+	   ylabel= Strom $i_\beta$,
+	   y unit = \si{\ampere},
+	   grid=major,
+        xmin=-3,
+        xmax=3,
+		ymin=-3,
+		ymax=3]
+		\addplot[smooth,blue,line width=0.5mm] table[x=CH1, y=CH2, header=has colnames,col sep=comma,each nth point={2}] {\currfiledir stromortskurve.csv};
+		\end{axis}
+\end{tikzpicture}
+\caption{Stromortskurve beim Hochlaufen im Sinus-Betrieb.}
+\label{fig:stromortskurve_feldorientiert}
+\end{figure}

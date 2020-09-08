@@ -1,0 +1,238 @@
+\subsection{Betriebszustände der Synchronmaschine}
+Um die möglichen Betriebszustände der SM zu untersuchen, wurden vier charakteristische Arbeitspunkte eingestellt. Die Synchronmaschine wurde am Netz betrieben, durch Variieren des Felderregerstromes $I_f$ der SM kann unter- bzw. übererregung eingestellt werden. Die gekoppelte GSM arbeitet abhängig vom Erregerstrom $I_E$ als Motor oder Generator. Somit kann durch Variation von $I_E$ an der GSM die Synchronmaschine in einen motorischen bzw. generatorischen Arbeitspunkt gezwungen werden.
+\subsubsection{Messungen}
+% SM und GSM
+ Zum Einstellen der Arbeitspunkte wurden analoge Instrumente verwendet, die eingestellten Werte sind in Tabelle \ref{tab:betrzustaende_analoge_messungen} dargestellt.
+
+
+% Tabelle mit Werten der analogen Instrumente zum Abgleich
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+                          & $P \,[kW]$ & $Q\, [kVA]$ & $\mathrm{cos}(\varphi)$ \\ \hline
+Motorisch untererregt     & 25       & 26        & 0.7 ind                                                 \\ \hline
+Motorisch übererregt      & 28       & -27       & 0.75 kap                                                \\ \hline
+Generatorisch untererregt & -24      & 28.5      & 0.66 kap                                                \\ \hline
+Generatorisch übererregt  & -24      & -28       & 0.76 ind                                                \\ \hline
+\end{tabular}
+\caption{Messwerte der analogen Instrumente}
+\label{tab:betrzustaende_analoge_messungen}
+\end{table}
+
+\noindent Nach einstellen der Arbeitspunkte wurden zwei digitale Wattmeter verwendet um Außenleiterströme, Außenleiterspannungen und die von der SM aufgenommene Wirkleistung zu messen. Die Aufgezeichneten Werte sind in Tabelle \ref{tab:betrzustaende_digitale_messungen} dargestellt. Die Wirkleistung $P$ wird entsprechend der 2-Wattmeter-Methode berechnet:
+\begin{equation*}
+    P_{ges}=P_1+P_2.
+\end{equation*}
+Aus den gemessenen Strömen und Spannungen wird ihr Mittelwert gebildet. Weiters werden die Außenleitergrößen auf Stranggrößem umgerechnet:
+\begin{equation*}
+    U_{AL}=\frac{U_1+U_2}{2}\hspace{2cm}
+    I_{AL}=\frac{I_1+I_2}{2}
+\end{equation*}
+\begin{equation*}
+    U_{S}=\frac{U_{AL}}{\sqrt{3}}\hspace{2cm}
+    I_{S}=I_{AL}.
+\end{equation*}
+Aus den so berechneten Größen können weiters die Scheinleistung und die Blindleistung berechet werden:
+\begin{equation*}
+    S=3\,U_S\,I_S
+\end{equation*}
+\begin{equation*}
+    Q=\sqrt{S^2-P^2}.
+\end{equation*}
+Die für die Raumzeigerrechnung verwendeten Bezugsgrößen sind 
+\begin{align*}
+    U_{Bez} &= U_{NS} &= \SI{231}{\volt}\\
+    I_{Bez} &= I_{NS} &= \SI{57.7}{\ampere}\\
+    S_{Bez} &= 3\,U_{Bez}\,I_{Bez} &\approx \SI{40}{\kilo\volt\ampere}.
+\end{align*}
+% Tabelle der gemessenen Werte
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+                          & $I_f [A]$ & $U_1 [V]$ & $U_2 [V]$ & $I_1 [A]$ & $I_2 [A]$ & $P_1 [kW]$ & $P_2 [kW]$ \\ \hline
+Motorisch untererregt     & 2         & 371       & 370       & 59.4      & 58.3      & 21.4       & 6.3        \\ \hline
+Motorisch übererregt      & 8.5       & 391       & 390       & 57.9      & 56.3      & 6.3        & 21.2       \\ \hline
+Generatorisch untererregt & 2         & 380       & 380       & 55.7      & 56        & -3.1       & -19.9      \\ \hline
+Generatorisch übererregt  & 8.9       & 401       & 402       & 53.9      & 54.2      & -21.3      & -8.3       \\ \hline
+\end{tabular}
+\caption{Messwerte der digitalen Instrumente}
+\label{tab:betrzustaende_digitale_messungen}
+\end{table}
+
+
+% Berechnen der Zeiger u_s, i_s und vom Winkel \varphi
+
+\subsubsection{Berechnung und Zeigerdiagramme}
+Aus den Werten der Tabelle \ref{tab:betrzustaende_digitale_messungen} ergeben sich für jeden Betriebszustand die Werte $U_S$, $I_S$ und $P$. Diese werden, zusammen mit den aus ihnen berechneten Größen in bezogene Größen umgerechnet:
+\begin{align*}
+    u_S &= \frac{U_S}{U_{Bez}}
+    &i_S &= \frac{I_S}{I_{Bez}}\\
+    p &= \frac{P}{S_{Bez}}
+    &q &= \frac{Q}{S_{Bez}}\\
+    s &= \frac{S}{S_{Bez}}.
+\end{align*}
+Der Phasenwinkel $\varphi_S$ kann aus der Beziehung
+\begin{equation*}
+    \mathrm{cos}(\varphi_S)=\frac{P}{S}=\frac{p}{s}
+\end{equation*}
+berechnet werden, wobei auf das Vorzeichen zu achten ist.
+Die Potierreaktanz $x_p$ und der Umrechnungsfaktor $\gamma$ wurden in Punkt \ref{subsec:potierreaktanz} bestimmt.
+\begin{align*}
+    x_p    &= 0.163\\
+    \gamma &= 0.069
+\end{align*}
+
+
+\begin{figure}[ht]
+    \centering
+    \begin{circuitikz}[>=latex]
+    \draw(0,0)
+    to[V] (0,2)
+    to[short,-o] (1,2)
+    to[L,l=$j x_{dh}$,-o] (3,2)
+    to[L,l=$j x_{p}$] (5,2);
+    \draw (7,2)
+    to[short,i=$\underline{i}_S$,o-] (5,2);
+    
+    \draw(0,0)
+    to[short,-o] (1,0)
+    to[short,-o] (3,0)
+    to[short] (5,0);
+    \draw (7,0)
+    to[short,o-] (5,0);
+
+
+     \draw[->] (1,1.8) -- (1,0.2) node[midway, anchor=west] {$\underline{u}_\mathrm{P}$};
+     \draw[->] (3,1.8) -- (3,0.2) node[midway, anchor=west] {$\underline{u}_\mathrm{i}$};
+     \draw[->] (7,1.8) -- (7,0.2) node[midway, anchor=west] {$\underline{u}_\mathrm{S}$};
+\end{circuitikz}
+    \caption{Ersatzschaltbild der elektrisch erregten Synchronmaschine}
+    \label{abb:ESB_synchronmaschine}
+\end{figure}
+
+\newcommand{\zuv}[1]{\underline{#1}^{uv}}
+\newcommand{\zdq}[1]{\underline{#1}^{dq}}
+
+\noindent Das Zeigerdiagramm wird ausgehend vom Ersatzschaltbild in Abbildung \ref{abb:ESB_synchronmaschine} im statorspannungsfestem $uv$-Koordinatensystem berechnet. Der Statorwiderstand $r_S$ wurde vernachlässigt. In diesem Koordinatensystem liegt der Statorspannungsraumzeiger $\zuv{u}_S$ per Definition in der imaginären $v$-Achse:
+\begin{equation*}
+    \zuv{u}_S = u_S \angle 90\degree.
+\end{equation*}
+Die Lage des Statorstromraumzeigers $\zuv{i}_S$ ist über $\varphi_S$ relativ zu $\zuv{u}_S$ bestimmt:
+\begin{equation*}
+    \zuv{i}_S=i_s \angle (90\degree-\varphi_S).
+\end{equation*}
+Nach dem Ersatzschaltbild in Abb. \ref{abb:ESB_synchronmaschine} kann die innere Spannung $\zuv{u}_i$ über
+\begin{equation*}
+    \zuv{u}_i=\zuv{u}_S-j x_P \zuv{i}_S
+\end{equation*}
+berechnet werden. Die bezogene Polradspannung $\zuv{u}_P$ kann nicht mit dieser Methode berechnet werden, da die Hauptfeldreaktanz stark vom Arbeitspunkt abhängig ist, und deshalb $x_{dh}$ unbekannt ist. Der Betrag $|u_P|$ wird stattdessen wie folgt über den Magnetisierungsstrom berechnet, und daraus anschließend $x_{dh}$ bestimmt.
+
+\noindent Der magnetisierend wirkende Strom $i_m(u_i)$ kann aus der Leerlaufkennlinie abgelesen werden. In Abb. \ref{abb:SM_Leerlaufkennlinie} ist fer Verlauf von $I_f(u_i)$ dargestellt, woraus sich für
+\begin{equation*}
+    i_m(u_S)=\frac{I_f(u_S)}{\gamma I_{Bez}}
+\end{equation*}
+ergibt. Da der magnetisierend wirkende Strom per Definition der inneren Spannung $\zuv{u}_i$ um $90\degree$ nacheilt kann der Raumzeiger als
+\begin{equation*}
+    \zuv{i}_m=i_m(u_S) \angle (arg(\zuv{u}_i)-90\degree)
+\end{equation*}
+angegeben werden. Aus der Knotenregel folgt nun der berechnete wert des Felderregerstromes
+\begin{equation*}
+    \zuv{i}_f=\zuv{i}_m-\zuv{i}_S, 
+\end{equation*}
+wobei der Zusammenhang zwischen bezogener und nicht bezogener Größe als
+\begin{equation*}
+    i_f=\frac{I_f}{\gamma I_{Bez}}
+\end{equation*}
+gegeben ist.
+
+\noindent Der Polradwinkel $\vartheta$ ist definiert als der Winkel zwischen Statorspannung und Polradspannug, jedoch findet sich dieser Winkel auch zwischen der reelen $u$-Achse und dem Felderregerstromzeiger wieder:
+\begin{equation*}
+    \vartheta=-\mathrm{arg}(\zuv{i}_f)
+\end{equation*}
+Aus der Ähnlichkeit der beiden von den Zeigern gebildeten Dreicke
+\begin{equation*}
+    u_P : j x_{dh} i_s : u_i = i_f : i_s : i_m
+\end{equation*}
+folgt für den Betrag
+\begin{equation*}
+    u_P = u_i \frac{i_f}{i_m},
+\end{equation*}
+und für den Raumzeiger
+\begin{equation*}
+    \zuv{u}_P = u_P \angle (90\degree-\vartheta).
+\end{equation*}
+Damit sind alle für das Zeigerdiamm notwendigen Raumzeiger berechnet.
+Mit der Kenntnis von $\vartheta$ können Größen des statorspannungsfesten $uv$-Koordinatensystems in das rotorfeste $dq$-Koordinatensystem umgerechnet werden:
+\begin{equation*}
+    \zdq{z} = \zuv{z} e^{j \vartheta}.
+\end{equation*}
+Damit kann die innere Spannung $u_i$ in ihren rotorfesten Komponenten angegeben werden:
+\begin{equation*}
+    u_{id}+j u_{iq} = \zdq{u}_i = \zuv{u}_i e^{j \vartheta}.
+\end{equation*}
+Aus den bekannten Zeigern kann der Wert der bezogenen Längsreaktanz $x_d$ geometrisch ermittelt werden. Der Cosinussatz angewendet auf das Dreieck mit den Seiten $u_S$, $u_P$ und dem Winkel $\vartheta$ ergibt
+\begin{equation*}
+    (x_d i_S)^2 = u_S^2 +u_P^2-2 u_S u_P \mathrm{cos}(\vartheta),
+\end{equation*}
+und nach $x_d$ umgestellt
+\begin{equation*}
+    x_d=\sqrt{\frac{u_S^2 +u_P^2-2 u_S u_P \mathrm{cos}(\vartheta)}{i_S^2}}.
+\end{equation*}
+Die synchrone Hauptfeldreaktanz $x_{dh}$ ist dann
+\begin{equation*}
+    x_{dh}=x_d-x_P.
+\end{equation*}
+
+\noindent Die Ergebnisse der Berechnungen sind für alle Betriebszustände in Tabelle \ref{tab:berechnete_werte_betrzustaende} dargestellt.
+Beachtenswert sind die unterschiedlichen Werte von $x_{dh}$ für die verschiedenen Betriebszustände, in denen sich die Arbeitspunkabhängigkeit der Hauptfeldreaktanz widerspiegelt.
+Ebenfalls zu beachten sind die Unterschiede zwischen berechneten und gemessenem Felderregerstrom $I_f$ bzw. $i_f$. Diese Unterschiede ergeben sich zum Teil aus dem Einfluss des in der Berechnung vernachlässigten Statorwiderstands und zum Teil aus der ebenfalls vernachlässigten magnetischen Achsigkeit der Maschine. 
+
+\begin{table}[!ht]
+	\centering% Tabelle zu Leerlauf
+    \begin{tabular}{|l|r|r|r|r|}
+    \hline
+                                  & \multicolumn{2}{c|}{motorisch} & \multicolumn{2}{c|}{generatorisch} \\
+                                  & übererregt    & untererregt    & übererregt      & untererregt      \\ \hline
+    $u_s$                         & 0.97600       & 0.92601        & 1.00349         & 0.94975          \\ \hline
+    $i_s$                         & 0.9896        & 1.01993        & 0.93674         & 0.96794          \\ \hline
+    %$\varphi_s$                  & 0.77837       & 0.74738        & 2.47754         & 2.24681          \\ \hline
+    $\varphi_s [\degree]$         & -44.59732     & 42.82172       & -141.95259      & 128.73273        \\ \hline
+    $u_i$                         & 1.09529       & 0.8221         & 1.10416         & 0.83255          \\ \hline
+    $u_{id}$                      & 0.34967       & 0.73441        & 0.38359         & 0.73513          \\ \hline
+    $u_{iq}$                      & 1.03798       & 0.36945        & 1.03539         & 0.3908           \\ \hline
+    $x_{dh}$                      & 0.99662       & 0.82331        & 0.95567         & 0.79655          \\ \hline
+    $i_m$                         & 1.09901       & 0.99853        & 1.15538         & 1.0452           \\ \hline
+    $i_{f,ber}$                   & 1.96681       & 0.94326        & 1.92981         & 0.78244          \\ \hline
+    $i_{f,gem}$                   & 2.13498       & 0.50235        & 2.23545         & 0.50235          \\ \hline
+    $I_{f,ber} [\SI{}{\ampere}]$  & 7.83046       & 3.75540        & 7.68315         & 3.11513          \\ \hline
+    $I_{f,gem} [\SI{}{\ampere}]$  & 8.50000       & 2.00000        & 8.90000         & 2.00000          \\ \hline
+    $u_p$                         & 1.96016       & 0.7766         & 1.84426         & 0.62325          \\ \hline
+    %$\vartheta$                  & 0.43          & 1.25359        & 0.46392         & 1.20104          \\ \hline
+    $\vartheta [\degree]$         & 24.63719      & 71.82542       & -26.58066       & -68.81452        \\ \hline
+    $p$                           & 0.68774       & 0.69274        & 0.74026         & 0.5752           \\ \hline
+    $q$                           & 0.67814       & 0.64197        & 0.57934         & 0.71712          \\ \hline
+    $s$                           & 0.96585       & 0.94447        & 0.94001         & 0.9193           \\ \hline
+    \end{tabular}
+    \caption{Berechnete Werte der vier Betriebszustände}
+    \label{tab:berechnete_werte_betrzustaende}
+\end{table}
+%
+Die Zeigerdiagramme sind in Abbildung \ref{fig:vier_zeigerdiagramme} dargestellt. Es ist gut erkennbar, dass für die übererregten (kapazitiv) Zustände der Betrag der Polradspannung $u_P$ größer als der Betrag der Statorspannung $u_S$ ist. Außerdem gut erkennbar ist dass die Winkel $\varphi_S$ und $\vartheta$ entsprechend der Tabelle \ref{tab:charak_winkel_bertzust} zu liegen kommen.
+
+\begin{table}[]
+\centering
+    \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Betriebszustand}                  & $\varphi_S$                        & $\vartheta$            \\ \hline
+    Motor untererregt                         & $0\degree<\varphi_S<90\degree$     & $\vartheta > 0\degree$ \\ \hline
+    Motor übererregt                          & $-90\degree<\varphi_S<0\degree$    & $\vartheta > 0\degree$ \\ \hline
+    Generator untererregt                     & $90\degree<\varphi_S<180\degree$   & $\vartheta < 0\degree$ \\ \hline
+    Generator übererregt                      & $-90\degree<\varphi_S<-180\degree$ & $\vartheta < 0\degree$ \\ \hline
+    \end{tabular}
+    \caption{Charakteristiche Winkel der Betriebszustände}
+    \label{tab:charak_winkel_bertzust}
+\end{table}
+
+\input{\currfiledir zeigerdiagramme.tex}

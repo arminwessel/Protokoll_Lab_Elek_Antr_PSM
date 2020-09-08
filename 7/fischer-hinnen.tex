@@ -1,0 +1,108 @@
+\begin{figure}[h!]
+	\centering{
+		\begin{tikzpicture}
+		\pgfplotsset{set layers}
+		% Variablen festlegen
+		\pgfmathsetmacro{\Un}{1}
+		\pgfmathsetmacro{\In}{1}
+		\pgfmathsetmacro{\IfIV}{10.4}
+		\pgfmathsetmacro{\IfK}{4.4}
+		\pgfmathsetmacro{\IfL}{4.5}
+		\pgfmathsetmacro{\tau}{3.6}
+		\pgfmathsetmacro{\kLL}{0.388} % Steigung der Leerlaufkennlinie
+		\pgfmathsetmacro{\kcnull}{\In / \IfK *\Un/\kLL}
+		\pgfmathsetmacro{\kc}{1}
+		\begin{axis}[
+		width=0.9*\textwidth,
+		height=12cm,
+		xlabel=$I_{\mathrm{f}}$,
+		x unit=\si{\ampere},
+		ylabel={$u_S$,$i_S$},
+		y unit=1,
+		grid = major,
+		ymin=0,
+		ymax=1.4,
+		xmin=0,
+		xmax=12,
+		xtick={0,2,4,6,8,10,12}, 
+		xticklabels={0,2,{},6,8,{},12},
+		ytick={0,0.2,0.4,0.6,0.8,1,1.2,1.4},
+		yticklabels={0,$U_{\mathrm{iK}}$,\num{0.4},\num{0.6},\num{0.8},1,$U_{\mathrm{iIV}}$,\num{1.4}},
+		extra x ticks={4.4,10.4}, 
+		extra x tick labels={{$I_{\mathrm{fK}}, I_{\mathrm{fL}}$},$I_{\mathrm{fIV}}$},
+		extra tick style={grid=none,xtick style={draw=none}},
+		legend style={
+            at={(0.7,0.1)},
+            anchor=west}
+		]
+		
+		% Koordinaten festlegen
+		\coordinate (IV) at (\IfIV, \Un);
+		\coordinate (IVsub) at ([shift=(IV)] -\IfK,0);
+		
+		% Induktiver Volllastpunkt
+		\draw[dashed] (\IfIV,0) -- (IV);
+		
+		% I_{fK} von I_{IV} subtrahieren
+		\draw[thick, blue] (IV) -- (IVsub);
+		\draw [fill,blue] (IV) ellipse [x radius=0.08cm, y radius=0.08cm];
+		\draw [fill,blue] (IVsub) ellipse [x radius=0.08cm, y radius=0.08cm];
+		
+		% Leerlaufkennlinie
+		\addplot[smooth,red,line width=0.5mm,domain=0:10, samples=100, name path=leerlauf]{1.4*(1-exp(-x/\tau))};		
+		\addlegendentry{$u_{\mathrm{sL}}$}
+		
+		% Anfangssteigung der Leerlaufkennlinie
+		\addplot[domain=0:\Un/\kLL, green,dashed] {x*\kLL};
+		\addlegendentry{$\Diff{U_{\mathrm{sL}}}{I_{\mathrm{f}}}\vert_{I_f=0}$}
+		
+		%Kurzschlusskennlinie
+		\addplot[domain=0:7, red] {\In / \IfK *x};
+		\addlegendentry{$i_{\mathrm{S}}$}
+		
+		% Parallelverschieben
+		\addplot[domain=0:15,gray, thin, name path=parallel] {\kLL *x - (\kLL * (\IfIV - \IfK) - \In)};
+		\path[name intersections={of=leerlauf and parallel,name=UiIV}];
+		\coordinate (UiIV) at (UiIV-1);
+		
+		\draw[blue,thick] (IVsub) -- (UiIV);
+		
+		% Dreieck fertig zeichnen
+		\draw[blue,thick] (UiIV) -- (IV);
+		
+		% Potierreaktanz
+		\draw[dashed] (UiIV |- 0,\Un) -- node[right]{$x_p$} (UiIV);
+		
+		% innere Spannung im induktiven Vollastpunkt
+		\draw[dashed] (UiIV -| 0,0) -- (UiIV);
+		
+		% oberer Punkt im Dreieck
+		\draw [fill,blue] (UiIV) ellipse [x radius=0.08cm, y radius=0.08cm];
+		
+		% innere Spannung im Kurzschlusspunkt
+		\coordinate (UiK) at ([shift=(UiIV)]  \IfK - \IfIV,-\Un);
+		\draw[thick, blue] (0,0) -- (UiK);
+		\draw[thick, blue] (UiK) -- (\IfK,0);
+		\draw[dashed] ( UiK -| 0,0 ) -- (UiK);
+		
+		% auf Felderregerseite umgerechnete Ankernennstrom
+		\draw [decorate,decoration={brace,amplitude=5pt,aspect=0.67},xshift=0pt,yshift=-3pt]
+		(IV) -- (UiIV |- 0,\Un) node [black,pos=0.67,yshift=-13pt] 
+		{$I_{\mathrm{sN}}''$};
+		
+		% kc 
+		\draw[thick] (\IfL,0) -- node[right]{$k_c$} (\IfL,\In / \IfK *\IfL);
+		%\draw[dashed] (\IfL,\In / \IfK *\IfL) -- (\IfL,\In );
+		
+		% kc0
+		\draw[thick] (axis cs: \Un/\kLL,0) -- node[left]{$k_{c0}$} (axis cs: \Un/\kLL,\kcnull);
+		\draw[dashed] (axis cs: \Un/\kLL,\kcnull) -- (axis cs: \Un/\kLL,\In);
+		
+		% IfK
+		\draw[dashed] (axis cs:\IfK,0) -- (axis cs:\IfK,\In);
+		\end{axis}
+		\end{tikzpicture}
+	}
+	\caption{Konstruktion nach Fischer-Hinnen für die Bestimmung der Potierreaktanz.}
+    \label{abb:Fischer_Hinnen}
+\end{figure}

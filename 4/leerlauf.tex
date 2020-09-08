@@ -1,0 +1,32 @@
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 12cm,
+	   xlabel=Felderregerstrom $I_{f}$,
+	   x unit = \si{\ampere},
+	   ylabel = bezogene Leerlaufspannung $u_{sL}$,
+	   y unit = 1,
+	   xtick={0,1,...,5,6,7,...,10}, 
+	   xticklabels={0,1,...,5,6,7,...,10}, 
+	   extra x ticks = {4.5},
+	   extra x tick labels = {$I_{\mathrm{fL}}$},
+	   grid=major,
+        xmin=0,
+        xmax=8,
+		ymin=0,
+		ymax=1.25,
+		legend style={
+            at={(0.1,0.9)},
+            anchor=west}
+		]
+		\addplot[smooth,blue,line width=0.5mm] table[x=I_f, y=u_sL, header=has colnames,col sep=comma] {\currfiledir leerlauf.csv};
+		\addlegendentry{gemessen}
+		\addplot[smooth,red,line width=0.5mm,domain=0:10, samples=100]{1.4*(1-exp(-x/3.6))};
+		\addlegendentry{berechnet}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Gemessene und korrigierte ($\Delta$) Leerlaufkennlinie der Synchronmaschine}
+	\label{abb:SM_Leerlaufkennlinie}
+\end{figure}

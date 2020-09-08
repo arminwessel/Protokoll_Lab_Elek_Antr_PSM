@@ -1,0 +1,49 @@
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 12cm,
+	   xlabel=Felderregerstrom $I_{f}$,
+	   x unit = \si{\ampere},
+	   ylabel = bezogene Leerlaufspannung $u_{sL}$,
+	   y unit = 1,
+	   xtick={0,1,...,3,4,5,...,10}, 
+	   xticklabels={0,1,...,3,{},5,...,10}, 
+	   extra x ticks = {4.4},
+	   extra x tick labels = {$I_{\mathrm{fK}}$},
+	   grid=major,
+        xmin=0,
+        xmax=10,
+		ymin=0,
+		ymax=1.2
+		]
+		%\addplot[smooth,blue,line width=0.5mm] table[x=I_f, y=u_sL, header=has colnames,col sep=comma] {./4/leerlauf.csv};
+		%\label{kurzschluss1}
+		\addplot[smooth,red,line width=0.5mm,domain=0:10, samples=100]{1.4*(1-exp(-x/3.6))};
+		%\label{kurzschluss2}
+	\end{axis}
+	\begin{axis}[
+       width=\textwidth,
+       height= 12cm,
+       axis x line = none,
+       yticklabel pos = right,
+	   ylabel = bezogener Kurzschlussstrom $i_{\mathrm{sK}}$,
+	   y unit = \si{\ampere},
+        xmin=0,
+        xmax=10,
+		ymin=0,
+		ymax=1.2,
+		legend style={
+            at={(0.1,0.9)},
+            anchor=west}
+		]
+		%\addlegendimage{/pgfplots/refstyle=kurzschluss1}\addlegendentry{$u_{sL}$ Gemessen}
+		\addlegendimage{/pgfplots/refstyle=kurzschluss2}\addlegendentry{$u_{sL}$ Berechnet}
+		\addplot[smooth,blue,dashed,line width=0.5mm] table[x=I_f, y=i_s, header=has colnames,col sep=comma] {\currfiledir kurzschluss.csv};
+		\addlegendentry{$I_{sK}$}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Gemessene und korrigierte ($\Delta$) Leerlaufkennlinie und Kurzschluss}
+	\label{abb:SM_Kurzschluss}
+\end{figure}

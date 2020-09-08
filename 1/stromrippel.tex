@@ -1,0 +1,23 @@
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 10cm,
+	   xlabel=Zeit $t$,
+	   x unit = \si{\milli\second},
+	   ylabel = Stromrippel $I_{ZK}$,
+	   y unit = \si{\ampere},
+	   grid=major,
+        xmin=0,
+        xmax=400,
+		ymin=0,
+		ymax=1.2
+		]
+		\addplot[smooth,blue,line width=0.5mm] table[x=second, y=CH1, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+200]
+		{\currfiledir stromrippel.csv};
+		\end{axis}
+	\end{tikzpicture}
+    \caption{Stromrippel des Hardware-Stromreglers}
+    \label{fig:rippel}
+\end{figure}

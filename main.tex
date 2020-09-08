@@ -14,6 +14,11 @@
 \usepackage{csvsimple}
 \usepackage{pgfplotstable} % Generates table from .csv
 \usepackage{setspace}
+\usepackage{currfile}
+\usepackage{subcaption}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{tabularx}
 \restylefloat{table}
 \providecommand{\zB}{z.\,B.\@\xspace}
 \providecommand{\Matlab}{\textsc{Matlab}\xspace}
@@ -46,15 +51,29 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows,decorations,intersections, decorations.text,calc}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.16}
+\pgfplotsset{compat=1.15}
 \usepgfplotslibrary{units}
 \pgfplotsset{ticklabel style={/pgf/number format/use comma,/pgf/number format/1000 sep={ }}}
-\usetikzlibrary{external}
+\usetikzlibrary{external,arrows}
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
-%\tikzset{external/force remake}
+\tikzset{external/up to date check=simple}
+\tikzset{external/force remake}
 \begin{document}
 \includepdf{Deckblatt_PSM}
 \tableofcontents\newpage
-\include{PSM}
-\include{Anhang}
+\include{Einleitung}
+
+%SM
+%\input{4/0.tex}
+ %\input{5/0.tex}
+ %\input{6/0.tex}
+ %\input{7/0.tex}
+ \input{8/0.tex}
+
+\clearpage
+%PSM
+% \input{1/0.tex}
+% \input{2/0.tex}
+% \input{3/0.tex}
+%\include{Anhang}
 \end{document}

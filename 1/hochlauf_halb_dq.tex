@@ -1,0 +1,29 @@
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 10cm,
+	   xlabel=Zeit $t$,
+	   x unit = \si{\milli\second},
+	   grid=major,
+        xmin=0,
+        xmax=500,
+		ymin=-10,
+		ymax=10,
+		legend style={
+            at={(0.05,0.85)},
+            anchor=west}]
+		\addplot[smooth,red,line width=0.3mm] table[y=1,x expr=\thisrow{x-axis}*1000+156,header=has colnames,col sep=comma] {\currfiledir hochlauf_halb_dq.csv};
+		\addlegendentry{$i_d$}
+		\addplot[smooth,blue,line width=0.3mm] table[y=2,x expr=\thisrow{x-axis}*1000+156, header=has colnames,col sep=comma] {\currfiledir hochlauf_halb_dq.csv};
+		\addlegendentry{$i_q$}
+		\addplot[smooth,green,line width=0.3mm] table[y=3,x expr=\thisrow{x-axis}*1000+156, header=has colnames,col sep=comma] {\currfiledir hochlauf_halb_dq.csv};
+		\addlegendentry{$\omega_m$}
+		\addplot[smooth,orange,line width=0.3mm] table[y=4,x expr=\thisrow{x-axis}*1000+156, header=has colnames,col sep=comma] {\currfiledir hochlauf_halb_dq.csv};
+    	\addlegendentry{$\gamma_m$}
+		\end{axis}
+	\end{tikzpicture}
+    \caption{Zeitverlauf der Ströme, des Winkels und der Drehzahl beim Einschaltvorgang und halbem Nennmoment im d,q-KOS.}
+    \label{fig:hochlauf_halb_dq}
+\end{figure}

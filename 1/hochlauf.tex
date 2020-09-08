@@ -1,0 +1,28 @@
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 10cm,
+	   xlabel=Zeit $t$,
+	   x unit = \si{\milli\second},
+	   grid=major,
+        xmin=0,
+        xmax=500,
+		ymin=-10,
+		ymax=10,
+		legend style={
+            at={(0.1,0.3)},
+            anchor=west}]
+		%\addplot[smooth,blue,line width=0.5mm] table[ y expr=\thisrow{CH1}/0.2, header=has colnames,col sep=comma,x expr=\thisrow{second}*1000+156,each nth point={2}, unbounded coords=jump] {\currfiledir hochlauf.csv};
+		%\addlegendentry{$I_1$}
+		\addplot[smooth,red,line width=0.5mm] table[ y=CH2, header=has colnames,col sep=comma,x expr=\thisrow{second}*1000+156,each nth point={2}, unbounded coords=jump] {\currfiledir hochlauf.csv};
+		\addlegendentry{$i_q$}
+		\addplot[smooth,green,line width=0.5mm] table[ y=CH3, header=has colnames,col sep=comma,x expr=\thisrow{second}*1000+156,each nth point={2}, unbounded coords=jump] {\currfiledir hochlauf.csv};
+		\addlegendentry{$\omega_m$}
+		\addplot[smooth,orange,line width=0.5mm] table[ y=CH4, header=has colnames,col sep=comma,x expr=\thisrow{second}*1000+156,each nth point={2}, unbounded coords=jump] {\currfiledir hochlauf.csv};
+		\addlegendentry{$\gamma_m$}
+		\end{axis}
+	\end{tikzpicture}
+    \caption{Zeitverlauf der Ströme, des Winkels und der Drehzahl beim Einschaltvorgang im d,q-KOS.}
+\end{figure}

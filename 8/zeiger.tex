@@ -1,0 +1,146 @@
+\tikzset{>=latex}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\begin{figure}
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\begin{tikzpicture}[scale=2.5]
+		% Motorisch übererregt
+
+		\path (0,0.976) coordinate (us);
+		\path (0.11627, 1.09064) coordinate (ui);
+		\path (0.63017, 1.59737) coordinate (up);
+		\path (-0.69482, 0.70465) coordinate (is);
+		\path (0.30309, -0.03231) coordinate (im);
+		\path (0.44391, -0.17512) coordinate (if);
+		\path (2.79069, -1.10093) coordinate (axisd);
+		\path (1.10093, 2.79069) coordinate (axisq);
+		
+		% Achsen uv
+		\draw [->,gray] (0,0) -- (1.5,0) node[anchor=north] {u};
+		\draw [->,gray] (0,0) -- (0,1.5) node[anchor=east] {v};
+		
+		% Achsen dq
+		\draw [->,babyblue] (0,0) -- ($0.5*(axisd)$) node[anchor=west] {d};
+		\draw [->,babyblue] (0,0) -- ($0.5*(axisq)$) node[anchor=west] {q};
+		
+		% Spannungen
+		\draw [->] (0,0) -- (us) node[anchor=east] {$u_S$};
+		\draw [->] (0,0) -- (ui) node[anchor=west] {$u_i$};
+		\draw [->] (0,0) -- (up) node[anchor=west] {$u_p$};
+		\draw [->] (us) -- (up);
+		
+		% Ströme
+		\draw [->,red] (0,0) -- (is) node[anchor=east] {$i_s$};
+		\draw [->,red] (0,0) -- (im) node[anchor=south] {$i_m$};
+		\draw [->,red] (0,0) -- (if) node[anchor=north] {$i_f$};
+
+		\end{tikzpicture}
+		\subcaption{Motorisch übererregt}
+		\end{minipage}
+		~
+		\begin{minipage}{0.45\textwidth}
+		\begin{tikzpicture}[scale=2.5]
+		% Motorisch untererregt
+		
+		\path (0.0, 0.92601) coordinate (us);
+		\path (0.12344, 0.81162) coordinate (ui);
+		\path (0.51965, 0.44445) coordinate (up);
+		\path (0.69327, 0.74809) coordinate (is);
+		\path (0.28653, -0.04358) coordinate (im);
+		\path (0.1569, -0.18345) coordinate (if);
+		\path (1.94993, -2.27987) coordinate (axisd);
+		\path (2.27987, 1.94993) coordinate (axisq);
+		
+		% Achsen uv
+		\draw [->,gray] (0,0) -- (1.5,0) node[anchor=north] {u};
+		\draw [->,gray] (0,0) -- (0,1.5) node[anchor=east] {v};
+		
+		% Achsen dq
+		\draw [->,babyblue] (0,0) -- ($0.5*(axisd)$) node[anchor=west] {d};
+		\draw [->,babyblue] (0,0) -- ($0.5*(axisq)$) node[anchor=west] {q};
+		
+		% Spannungen
+		\draw [->] (0,0) -- (us) node[anchor=east] {$u_S$};
+		\draw [->] (0,0) -- (ui) node[anchor=west] {$u_i$};
+		\draw [->] (0,0) -- (up) node[anchor=west] {$u_p$};
+		\draw [->] (us) -- (up);
+		
+		% Ströme
+		\draw [->,red] (0,0) -- (is) node[anchor=east] {$i_s$};
+		\draw [->,red] (0,0) -- (im) node[anchor=south] {$i_m$};
+		\draw [->,red] (0,0) -- (if) node[anchor=north] {$i_f$};
+		\end{tikzpicture}
+		\subcaption{Motorisch untererregt}
+		\end{minipage}
+		\\[1cm]
+		\begin{minipage}{0.45\textwidth}
+		\begin{tikzpicture}[scale=2.5]
+		% Generatorisch übererregt
+		
+		\path (0.0, 1.00349) coordinate (us);
+		\path (-0.12172, 1.09875) coordinate (ui);
+		\path (-0.69454, 1.54706) coordinate (up);
+		\path (-0.57733, -0.73768) coordinate (is);
+		\path (0.31095, 0.03445) coordinate (im);
+		\path (0.43783, 0.19656) coordinate (if);
+		\path (2.73684, 1.22869) coordinate (axisd);
+		\path (-1.22869, 2.73684) coordinate (axisq);
+		
+		% Achsen uv
+		\draw [->,gray] (0,0) -- (1.5,0) node[anchor=north] {u};
+		\draw [->,gray] (0,0) -- (0,1.5) node[anchor=east] {v};
+		
+		% Achsen dq
+		\draw [->,babyblue] (0,0) -- ($0.5*(axisd)$) node[anchor=west] {d};
+		\draw [->,babyblue] (0,0) -- ($0.5*(axisq)$) node[anchor=east] {q};
+		
+		% Spannungen
+		\draw [->] (0,0) -- (us) node[anchor=east] {$u_S$};
+		\draw [->] (0,0) -- (ui) node[anchor=west] {$u_i$};
+		\draw [->] (0,0) -- (up) node[anchor=west] {$u_p$};
+		\draw [->] (us) -- (up);
+		
+		% Ströme
+		\draw [->,red] (0,0) -- (is) node[anchor=east] {$i_s$};
+		\draw [->,red] (0,0) -- (im) node[anchor=south] {$i_m$};
+		\draw [->,red] (0,0) -- (if) node[anchor=north] {$i_f$};
+		\end{tikzpicture}
+		\subcaption{Generatorisch übererregt}
+		\end{minipage}
+		~
+		\begin{minipage}{0.45\textwidth}
+		\begin{tikzpicture}[scale=2.5]
+		% Generatorisch untererregt
+		
+		\path (0.0, 0.94975) coordinate (us);
+		\path (-0.09993, 0.82517) coordinate (ui);
+		\path (-0.44214, 0.39853) coordinate (up);
+		\path (0.75506, -0.60563) coordinate (is);
+		\path (0.29478, 0.0357) coordinate (im);
+		\path (0.14237, 0.15795) coordinate (if);
+		\path (2.00857, 2.22837) coordinate (axisd);
+		\path (-2.22837, 2.00857) coordinate (axisq);
+		
+		% Achsen uv
+		\draw [->,gray] (0,0) -- (1.5,0) node[anchor=north] {u};
+		\draw [->,gray] (0,0) -- (0,1.5) node[anchor=east] {v};
+		
+		% Achsen dq
+		\draw [->,babyblue] (0,0) -- ($0.5*(axisd)$) node[anchor=west] {d};
+		\draw [->,babyblue] (0,0) -- ($0.5*(axisq)$) node[anchor=west] {q};
+		
+		% Spannungen
+		\draw [->] (0,0) -- (us) node[anchor=east] {$u_S$};
+		\draw [->] (0,0) -- (ui) node[anchor=west] {$u_i$};
+		\draw [->] (0,0) -- (up) node[anchor=west] {$u_p$};
+		\draw [->] (us) -- (up);
+		
+		% Ströme
+		\draw [->,red] (0,0) -- (is) node[anchor=east] {$i_s$};
+		\draw [->,red] (0,0) -- (im) node[anchor=south] {$i_m$};
+		\draw [->,red] (0,0) -- (if) node[anchor=north] {$i_f$};
+		\end{tikzpicture}
+		\subcaption{Generatorisch untererregt}
+		\end{minipage}
+		\caption{Betriebszustände}
+\end{figure}
