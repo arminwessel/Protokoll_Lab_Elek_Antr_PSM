@@ -1,6 +1,12 @@
-\subsection{Kurzschlussversuch} 
-Der Kurzschlussversuch der Synchronmaschine erfolgt mit kurzgeschlossenen Statorklemmen und (wie beim Leerlaufversuch) ebenfalls mit konstanter Nenndrehzahl $n=n_N$. Der Kurzschlussstrom wird mit einer Stromzange gemessen, während der Erregerstrom $I_f$ gesteigert wird. \\
-Die Nenndrehzahl wurde wieder über die gekoppelte fremderregte GSM eingestellt und bei Bedarf nachgeregelt, sodass die Drehzahl über die gesamte Messung konstant bleibt. Die gemessene Kurzschlusskennlinie ist in Abbildung \ref{abb:SM_Kurzschluss} dargestellt. Der Zusammenhang ist linear, da die innere Spannung der Synchronmaschine aufgrund der Ankerrückwirkung wesentlich kleiner als die Nennspannung der Maschine ist. Die mittlere Steigung der Geraden lässt sich einfach über die gemeseenen Werte berechnen:
+\subsection{Kurzschlussversuch}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth, angle=0]{\currfiledir SM_Kurzschluss}
+    \caption{Schaltungsaufbau zur Ermittlung der Kurzschlusskennlinie der Synchronmaschine (SM).}
+    \label{fig:SM_Kurzschluss}
+\end{figure}
+Der Kurzschlussversuch der Synchronmaschine erfolgt mit kurzgeschlossenen Statorklemmen und (wie beim Leerlaufversuch) ebenfalls mit konstanter Nenndrehzahl $n=n_N$. Der Kurzschlussstrom wird mit einer Stromzange gemessen, während der Erregerstrom $I_f$ gesteigert wird (Messschaltung siehe Abbildung\;\ref{fig:SM_Kurzschluss}).\\
+Die Nenndrehzahl wird wieder über die gekoppelte Nebenschluss-GSM eingestellt und bei Bedarf nachgeregelt, sodass die Drehzahl über die gesamte Messung konstant bleibt. Die gemessene Kurzschlusskennlinie ist in Abbildung \ref{abb:SM_Kurzschluss} dargestellt. Der Zusammenhang ist linear (keine Sättigungserscheinungen), da die innere Spannung der Synchronmaschine aufgrund der Ankerrückwirkung wesentlich kleiner als die Nennspannung der Maschine ist. Die mittlere Steigung der Geraden lässt sich einfach über die gemeseenen Werte berechnen:
 \begin{equation*}
     k_K = \frac{dI_{sK}}{dI_f} = \frac{60.5 - 0.7}{4.6 - 0} = 13
 \end{equation*}
@@ -8,5 +14,5 @@ Dies entspricht bezogen auf den Nennstrom ca. $0.2253$. Der chrakteristische Fel
 \begin{equation*}
     \frac{I_{sK}(I_{fK})}{I_{sN}} = 1
 \end{equation*}
-und ergibt ca. $I_{fK} = \SI{4.44}{\ampere}$ und ist in der Abbildung ebenfalls eingezeichnet.
+und ergibt $I_{fK} \approx \SI{4.44}{\ampere}$ und ist in Abbildung\;\ref{abb:SM_Kurzschluss} ebenfalls eingezeichnet.
 \input{\currfiledir kurzschluss.tex}

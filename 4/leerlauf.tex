@@ -21,12 +21,14 @@
             at={(0.1,0.9)},
             anchor=west}
 		]
-		\addplot[smooth,blue,line width=0.5mm] table[x=I_f, y=u_sL, header=has colnames,col sep=comma] {\currfiledir leerlauf.csv};
+		\addplot[smooth,blue,line width=0.5mm] table[x=I_f, y=u_sL, header=has colnames,col sep=comma] {\currfiledir leerlauf_neu.csv};
 		\addlegendentry{gemessen}
-		\addplot[smooth,red,line width=0.5mm,domain=0:10, samples=100]{1.4*(1-exp(-x/3.6))};
-		\addlegendentry{berechnet}
+		\addplot[smooth,red,line width=0.5mm] table[x=I_f_corr, y=u_sL_corr, header=has colnames,col sep=comma] {\currfiledir leerlauf_neu.csv};
+		\addlegendentry{korrigiert}
+% 		\addplot[smooth,red,line width=0.5mm,domain=0:10, samples=100]{1.4*(1-exp(-x/3.6))};
+% 		\addlegendentry{berechnet}
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Gemessene und korrigierte ($\Delta$) Leerlaufkennlinie der Synchronmaschine}
+	\caption{Gemessene und korrigierte Leerlaufkennlinie der Synchronmaschine}
 	\label{abb:SM_Leerlaufkennlinie}
 \end{figure}

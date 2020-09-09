@@ -16,16 +16,16 @@
 		legend style={
             at={(0.45,0.85)},
             anchor=west}]
-		\addplot[smooth,orange,line width=0.3mm] table[x=second, y=CH3, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir sprung_bldc.csv};
+		\addplot[smooth,green,line width=0.3mm] table[x=second, y=CH3, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir sprung_bldc.csv};
 		\addlegendentry{$\omega_m$}
 		\addplot[smooth,blue,line width=0.3mm] table[x=second, y=CH1, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir sprung_bldc.csv};
 		\addlegendentry{$i_{\alpha}$}
 		\addplot[smooth,red,line width=0.3mm] table[x=second, y=CH2, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir sprung_bldc.csv};
 		\addlegendentry{$i_{\beta}$}
-		\addplot[smooth,green,line width=0.3mm] table[x=second, y=CH4, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir sprung_bldc.csv};
+		\addplot[smooth,orange,line width=0.3mm] table[x=second, y=CH4, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir sprung_bldc.csv};
 		\addlegendentry{$\gamma_m$}
 		\end{axis}
 	\end{tikzpicture}
-    \caption{Zeitverlauf der Ströme, des Winkels und der Drehzahl bei einem Drehzahlsprung im BLDC-Betrieb.}
+    \caption{Zeitverlauf der Ströme, des Winkels und der Drehzahl bei einem Drehzahlsprung im BLDC-Betrieb im $\alpha,\beta$-KOS.}
     \label{fig:sprung_bldc}
 \end{figure}

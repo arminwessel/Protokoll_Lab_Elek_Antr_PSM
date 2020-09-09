@@ -1,0 +1,30 @@
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 10cm,
+	   xlabel=Zeit $t$,
+	   x unit = \si{\milli\second},
+	   grid=both,
+	   minor tick num=3,
+        xmin=0,
+        xmax=500,
+		ymin=-10,
+		ymax=10,
+		legend style={
+            at={(0.4,0.15)},
+            anchor=west}]
+		\addplot[smooth,green,line width=0.3mm] table[x=t, y=omega, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir umkehr_bldc_dq.csv};
+		\addlegendentry{$\omega_m$}
+		\addplot[smooth,blue,line width=0.3mm] table[x=t, y=id, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir umkehr_bldc_dq.csv};
+		\addlegendentry{$i_d$}
+		\addplot[smooth,red,line width=0.3mm] table[x=t, y=iq, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir umkehr_bldc_dq.csv};
+		\addlegendentry{$i_q$}
+		\addplot[smooth,orange,line width=0.3mm] table[x=t, y=gamma, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir umkehr_bldc_dq.csv};
+		\addlegendentry{$\gamma_m$}
+		\end{axis}
+	\end{tikzpicture}
+    \caption{Zeitverlauf der Ströme, des Winkels und der Drehzahl bei einem Drehzahlsprung im BLDC-Betrieb im d,q-KOS.}
+    \label{fig:umkehr_bldc_dq}
+\end{figure}
