@@ -1,6 +1,32 @@
 \clearpage 
 
 \subsection{Feldschwächbetrieb} 
-Die PSM ist schlecht feldschwächbar! 
+%Die PSM ist schlecht feldschwächbar! 
 %:D
-% \input{\currfiledir aussenleiterspannung.tex}
+Ziel des Feldschächbetriebs ist es die Maschine über der Nenndrehzahl $n_N$ zu betreiben, ohne dabei die Nennstatorspannuns $U_{S,N}$ zu überschreiten. Wird eine negative $d$-Komponente des Stromes eingeprägt, bewirkt das einen Fluss der dem Fluss des Permanentmagneten entgegengesetzt ist. Durch den geringeren Flussbetrag sinkt die induzierte Spannung, und damit die Außenleiterspannung. Die $d$-Komponente des Stromes leistet keinen Beitrag zum Drehmoment. Für den Versuch wurde bei Nenndrehzahl ein bezogener Strom $i_d$ in negative Richtung eingeprägt. Dabei wurde die Außenleiterspannung $U_{AL}$ gemessen. Die Messwerte sind in Tabelle \ref{tab:PSM_feldschwaech} dargestellt.
+
+\begin{table}[!ht]
+\centering% Tabelle zu Kurzschluss
+    \begin{tabular}{|l|c|}
+    \hline
+    $i_d [1]$ & $U_{AL} [V]$ \\ \hline
+    0         & 107          \\ \hline
+    -0.1      & 103          \\ \hline
+    -0.2      & 99           \\ \hline
+    -0.3      & 96           \\ \hline
+    -0.4      & 92           \\ \hline
+    -0.5      & 88           \\ \hline
+    \end{tabular}
+    \caption{Messwerte zum Feldschwächbetrieb}
+    \label{tab:PSM_feldschwaech}
+\end{table}
+\noindent In Abbildung \ref{fig:feldschwaech} sind links die gemessenen Punkte dargestellt. Rechts ist die aus den Messdaten extrapolierte Gerade eingezeichnet, zusammen mit dem Wert
+\begin{equation*}
+    i_{d,0} = -2.855,
+\end{equation*}
+bei der die extrapolierte Außenleiterspannung Null wird. Man kann daraus auf die bezogene Induktivität der Maschine in d-Richtung schließen:
+\begin{equation*}
+    x_d = \frac{1}{|i_{d,0}|} \approx 0.35,
+\end{equation*}
+was dem typischen Wert einer PSM von $x_d \approx \frac{1}{3}$ entspricht.
+\input{\currfiledir aussenleiterspannung.tex}

@@ -1,25 +1,33 @@
 \subsection{Bestimmung der Potierreaktanz}
 \label{subsec:potierreaktanz}
-Nachdem die Maschine erfolgreich ans Netz gekoppelt wurde, soll die Potierreaktanz bestimmt werden. Dazu wird die graphische Methode nach Fischer-Hinnen genutzt.\\
-Zusätzlich zur Leerlauf- und Kurzschlusskennlinie wird noch der induktive Volllastpunkt $IV$ benötigt, damit alle relevanten Maschinendaten bestimmt werden können. Der Induktive Volllastpunkt ist dadurch gekennzeichnet, dass die Maschine nur Blindleistung abgibt und keine Wirkleistung. Die Maschine wirkt also kapazitiv aus Sicht des Netzes.\\
-Um die Synchronmaschine in den induktiven Volllastpunkt zu bringen, wurde der Erregerstrom erhöht bis sich Nennstrom und Nennspannung einstellen. Die Verluste der Synchronmaschine werden von der GSM gedeckt, indem das Drehmoment (bzw. der Erregerstrom der GSM) so gewählt wird, dass keine Wirkleistung aufgenommen wird. Der induktive Volllastpunkt ist in Abbildung \ref{abb:Fischer_Hinnen} dargestellt und liegt bei ca. $I_fIV = \SI{10.4}{\ampere}$.\\
-Für die Bestimmung der Potierreaktanz muss nun der Strom $I_{fK}= \SI{4.4}{\ampere}$ vom Strom $I_{fIV}$ subtrahiert werden und ins Diagramm eingetragen werden. Durch Parallelverschiebung der Anfangssteigung der Leerlaufkennlinie durch eben erhaltenen Punkt kann mit dem Schnittpunkt der Leerlaufkennlinie die innere Spannung im induktiven Volllastpunkt $u_{iIV} = 1.163$ abgelsen werden. Die Höhe des entstanden Dreiecks entspricht der Potierreaktanz $x_p = 0.163$. Die Teillänge $I''_{sN}= \SI{4}{\ampere}$ wird für den Umrechnungsfaktor $\gamma$ gebraucht.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth, angle =0]{\currfiledir SM_Leistungsmessung}
+    \caption{Schaltungsaufbau (Ausschnitt) zur Leistungsmessung - Ermittlung des induktiven Volllastpunktes.}
+    \label{fig:SM_Leistungsmessung}
+\end{figure}
+Nachdem die Maschine erfolgreich ans Netz gekoppelt wurde, wird die Potierreaktanz mit der graphischen Methode nach Fischer-Hinnen bestimmt.\\
+Zusätzlich zur Leerlauf- und Kurzschlusskennlinie wird noch der induktive Volllastpunkt $IV$ benötigt, damit alle relevanten Maschinendaten bestimmt werden können. Der Induktive Volllastpunkt ist dadurch gekennzeichnet, dass die Maschine keine Wirkleistung sondern nur Blindleistung umsetzt. Die Maschine wirkt also kapazitiv aus Sicht des Netzes.\\
+Um die Synchronmaschine in den induktiven Volllastpunkt zu bringen, wurde der Erregerstrom erhöht bis sich Nennstrom und Nennspannung einstellen. Die Verluste der Synchronmaschine werden von der GSM gedeckt, indem das Drehmoment (bzw. der Erregerstrom der GSM) so gewählt wird, dass keine Wirkleistung aufgenommen wird. Der induktive Volllastpunkt ist in Abbildung \ref{abb:Fischer_Hinnen} dargestellt und liegt bei ca. $I_{fIV} = \SI{10.4}{\ampere}$. Den Schaltungsaufbau bzw. dessen Aussschnitt für die Leistungsmessung (2-Wattmeter-Methode) stellt Abbildung\;\ref{fig:SM_Leistungsmessung} dar.\\
+Für die Bestimmung der Potierreaktanz (nach der Methode von Fischer und Hinnen) muss nun der Strom $I_{fK}= \SI{4.4}{\ampere}$ vom Strom $I_{fIV}$ subtrahiert werden und ins Diagramm eingetragen werden. Durch Parallelverschiebung der Anfangssteigung der Leerlaufkennlinie durch eben erhaltenen Punkt, kann mit dem Schnittpunkt der Leerlaufkennlinie die innere Spannung im induktiven Volllastpunkt $u_{iIV} = 1.163$ abgelesen werden. Die Höhe des entstanden Dreiecks entspricht der Potierreaktanz $x_p = 0.163$. Die Teillänge $I''_{sN}= \SI{4}{\ampere}$ wird für die Berechnung des Umrechnungsfaktor $\gamma$ benötigt:
 \begin{equation*}
-    \gamma = \frac{I''_{sN}}{I_{sN}} = 0.069
+    \gamma = \frac{I''_{sN}}{I_{sN}} = 0.069.
 \end{equation*}
-Darüber hinaus lassen sich die gesättigte ($k_ {c}$) und ungesättigte ($k_ {c0}$) Leerlauf-Kurzschluss-Verhältnisse graphisch ablesen.
+Dieser Faktor gestattet es, Statorströme auf äquivalente Felderregerströme - und umgekehrt - umzurechnen. Die Äquivalenz bezieht sich hier auf die dadurch entstehende Durchflutung bzw. der Amplituden der Grundwellen der magnetischen Flussdichte. D.h. es werden Felderregerströme (Gleichstrom) und Statorströme (Wechselstrom) in Beziehung zueinander gesetzt.\\
+
+Darüber hinaus lassen sich das gesättigte ($k_ {c}$) und ungesättigte ($k_ {c0}$) Leerlauf-Kurzschluss-Verhältniss graphisch ablesen.
 \begin{equation*}
-    k_ {c0} = \frac{I_{f0}}{I_{fK}} = \frac{\SI{2.6}{\ampere}}{\SI{4.4}{\ampere}} 0.59, \quad k_ {c} = \frac{I'_{f0}}{I_{fK}} = \frac{\SI{4.53}{\ampere}}{\SI{4.4}{\ampere}} 1.03
+    k_ {c0} = \frac{I_{f0}}{I_{fK}} = \frac{\SI{2.6}{\ampere}}{\SI{4.4}{\ampere}} = 0.59, \quad k_ {c} = \frac{I'_{f0}}{I_{fK}} = \frac{\SI{4.53}{\ampere}}{\SI{4.4}{\ampere}} = 1.03
 \end{equation*}
-Aus diesen können die gesättigte und die ungesättigte bezogene synchrone Längsreaktanz abgeleitet werden.
+Aus diesen können die gesättigte und die ungesättigte bezogene synchrone Längsreaktanz abgeleitet werden:
 \begin{equation*}
-    x_d = \frac{1}{k_c} = 1.69, \quad x_{d0} = \frac{1}{k_{c0}} = 0.97
+    x_d = \frac{1}{k_c} = 1.69, \quad x_{d0} = \frac{1}{k_{c0}} = 0.97.
 \end{equation*}
 Die charakteristischen Ströme können durch die Beziehung
 \begin{equation*}
     i_f = \frac{I'_f}{I_{sN}} = \frac{I_f}{\gamma I_{sN}}
 \end{equation*}
-auf die Statorseite umgerechnet werden. Die aus dem Diagramm entnommenen Werte sind in der Tablle \ref{tab:Fischer_Hinnen_abgelesene_Werte} zusammengefasst, die daraus berechneten Werte können der Tabelle \ref{tab:Fischer_Hinnen_berechnete_Werte} entnommen werden.
+auf die Statorseite umgerechnet werden. Die aus dem Diagramm entnommenen Werte sind in der Tabelle \ref{tab:Fischer_Hinnen_abgelesene_Werte} zusammengefasst, die daraus berechneten Werte können der Tabelle \ref{tab:Fischer_Hinnen_berechnete_Werte} entnommen werden.
 
 % Tabelle der abgelesenen Werte
 \begin{table}[!ht]
