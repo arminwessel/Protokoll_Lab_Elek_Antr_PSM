@@ -1,0 +1,31 @@
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 10cm,
+	   xlabel=Zeit $t$,
+	   x unit = \si{\milli\second},
+	   ylabel = Phasenströme,
+	   %y unit = \si{\ampere},
+	   grid=major,
+        xmin=0,
+        xmax=400,
+		ymin=-2.5,
+		ymax=2.5,
+		legend style={
+            at={(0.8,0.85)},
+            anchor=west}]
+		\addplot[smooth,orange,line width=0.3mm] table[x=t, y=i1, header=has colnames,col sep=comma] {\currfiledir Phasenstroeme.csv};
+		\addlegendentry{$i_1$}
+		\addplot[smooth,blue,line width=0.3mm] table[x=t, y=i2, header=has colnames,col sep=comma] {\currfiledir Phasenstroeme.csv};
+		\addlegendentry{$i_2$}
+		\addplot[smooth,red,line width=0.3mm] table[x=t, y=i3, header=has colnames,col sep=comma] {\currfiledir Phasenstroeme.csv};
+		\addlegendentry{$i_3$}
+		\addplot[smooth,green,line width=0.3mm] table[x=t, y=sum, header=has colnames,col sep=comma] {\currfiledir Phasenstroeme.csv};
+		\addlegendentry{$i_1$+$i_2$+$i_3$}
+		\end{axis}
+	\end{tikzpicture}
+    \caption{Zeitverlauf der Phasenströme beim Hochlauf im feldorientierten Betrieb.}
+    \label{fig:phasenstroeme_feldorientiert}
+\end{figure}

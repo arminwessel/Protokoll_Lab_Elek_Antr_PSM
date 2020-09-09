@@ -69,6 +69,32 @@ gegeben. Für den Leerlauffall gilt $i_s = 0 \rightarrow i_{sd} = 0$ und somit v
 \begin{equation*}
         x_{dh} \big|_{i_{f}} = \frac{u_{s} \big|_{i_{f}}}{i_{f}}
 \end{equation*}
-%Diagramm aus Hauptfeldreaktanz erzeugen -> schaut aber nicht so aus wie ich erwarte leider 
-Durch Sättigungserscheinungen sinkt die Hauptfeldreaktanz bei steigendem Magnetisierungsstrom. 
+Der Verlauf der Hauptfeldreaktanz $x_{dh}$ ist im linearen Bereich der Leerlaufkennlinie konstant. Durch die Sättigung des Eisens kommt es in der Leerlaufkennlinie zu einem Abflachen, wodurch die Hauptfeldreaktanz ebenfalls sinkt. Im Bereich hoher Sättigung ist die Leerlaufkennlinie wieder fast linear und die Hauptfeldreaktanz wird wieder näherungsweise konstant verlaufen. Die im Punkt \ref{subsec:leerlauf} dargestellte Kennlinie 
+
+
+In Abbildung \ref{abb:SM_hauptfeldreaktanz} kann die berechnete Kennlinie betrachtet werden. Die dazugehörigen Werte sind der Tabelle \ref{tab:Hauptfeldreaktanz} zu entnehmen.
+
+
+
+% Tabelle für die Hauptfeldreaktanz
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$u_s$    & $i_f$    & $x_{dh}$  \\ \hline
+0.314    & 0.25     & 1.254     \\ \hline
+0.561    & 0.5      & 1.123     \\ \hline
+0.776    & 0.75     & 1.035     \\ \hline
+0.938    & 1        & 0.938     \\ \hline
+1.058    & 1.25     & 0.846     \\ \hline
+1.136    & 1.5      & 0.758     \\ \hline
+1.201    & 1.75     & 0.677     \\ \hline
+1.24    & 2        & 0.620   \\ \hline
+\end{tabular}
+\caption{Werte für die Hauptfeldreaktanz}
+\label{tab:Hauptfeldreaktanz}
+
+\end{table}
+
+\input{\currfiledir hauptfeldreaktanz.tex}
 \input{\currfiledir fischer-hinnen.tex}

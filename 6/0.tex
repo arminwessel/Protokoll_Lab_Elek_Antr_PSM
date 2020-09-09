@@ -1,14 +1,13 @@
 \subsection{Synchronisation an das Spannungsnetz}
-Im nächsten Schritt muss die Synchronmaschine mit dem Netz synchronisiert werden. Dabei müssen folgende Bedingungen erfüllt werden für ein stoßfreies Zuschalten:
+Im nächsten Schritt muss die Synchronmaschine mit dem Netz synchronisiert werden. Dabei müssen folgende Bedingungen für ein stoßfreies Zuschalten erfüllt werden:
 \begin{itemize}
     \item gleiche Spannungsamplituden
     \item gleiche Frequenz
     \item gleiche Phasenlage
     \item gleiche Phasenfolge
 \end{itemize}
-Die sogenannte Hell-Dunkel-Schaltung wurde für den Abgleich genutzt. Die zugrunde liegende Schaltung kann dem Laborskript entnommen werden. Der Aufbau im Labor hat jeweils 2 redundante Lampen, damit es unter keinem Umständen zu einer falschen Zuschaltung kommt, weil eine Lampe ausgefallen ist.\\
-Die Spannungsamplitude wurde einfachheitshalber über ein Voltmeter überprüft. Falls die Spannungen nicht übereinstimmen, muss der Erregerstrom der Synchronmaschine entsprechend nachjustiert werden.\\
-Der Frequenzabgleich ist dann gegeben, wenn die Helligkeit der Lampen sih nicht ändert. Bei einer Frequenzdifferenz  stellt sich eine fortlaufende Spannungsänderung ein, die über die Lampen visualisiert wird. Um die Frequenz anzupassen muss die Drehzahl der Maschine über die gekoppelte GSM geändert werden.\\
-Die Phasenfolge ist dann richtig, wenn die "richtigen" Lampen hell bzw. dunkel sind. Bei vertauschen der Phasenlage würden die falschen Lampen hell/dunkel sein. 
-Die Phasenlage sind dann gleich, wenn die Dunkellamoe dunkel ist und die beiden anderen Lampen gleich hell sind. Ist dies nicht der Fall muss die Drehzahl kurzzeitig geändert werden, damit sich die Phasen verschieben können.\\
-Sind alle Bedingungen erfüllt kann die Maschine über einen Schalter mit dem Netz verbunden werden.
+Für die Bestimmung bzw. das Einstellen der richtigen Phasenlage bzw. Phasenfolge wird eine Hell-Dunkel-Schaltung verwendet (siehe Laborskript). Der Aufbau im Labor hat jeweils 2 redundante Lampen, um ein falsches Zuschalten aufgrund fehlerhafter Glühbirnen zu verhindern.\\
+Die Spannungsamplitude wird über ein Voltmeter überprüft und gegebenenfalls mit dem Erregerstrom der Synchronmaschine entsprechend angeglichen.\\
+Der Frequenzabgleich ist dann gegeben, wenn die Helligkeit der Lampen sich nicht ändert. Bei einer Frequenzdifferenz  stellt sich eine fortlaufende Spannungsänderung ein, die über die Lampen visualisiert wird (umlaufende "Dunkellampe"). Da bei der Synchronmaschine die Frequenz der Klemmenspannung in direktem Zusammenhang mit der Drehzahl der Maschine steht, kann die Frequenz über die gekoppelte GSM angepasst werden (durch Änderung der Erregung).\\
+Die Phasenfolge ist dann gleich, wenn die "richtigen" Lampen hell bzw. dunkel sind. Bei vertauschen der Phasenlage würden die falschen Lampen hell/dunkel sein. Dann kann zwar die Phasenlage übereinstimmen, die Phasenfolge allerdings z.B. $120^{\circ}$ verschoben sein, was einer umgekehrten Drehrichtung entsprechen würde. Ist die Phasenfolge nicht gleich, muss die Drehzahl kurzzeitig geändert werden, damit sich die beiden Drehspannungssysteme (starres Netz bzw. Synchronmaschine) zueinandereinander verschieben können.\\
+Erst wenn alle Bedingungen erfüllt sind, kann die Maschine über einen Schalter mit dem Netz verbunden werden.

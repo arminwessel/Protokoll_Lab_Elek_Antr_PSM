@@ -4,14 +4,25 @@ Die in der Laborübung verwendete Maschine besitzt jeweils 3 Wicklungen pro Stra
     U_N=\SI{400}{\volt}, \quad I_N = \SI{57.7}{\ampere}, \quad n_N = 1000\,\frac{\textrm{U}}{\textrm{min}}
 \end{equation*}
 Eigentlich handelt es sich dabei um eine Schenkelpolmaschine (Achsigkeit), allerdings wird diese für unsere Zwecke als Vollpolmaschine behandelt. Außerdem besitzt die Synchronmaschine eine gekoppelte Nebenschlussmaschine, welche den Erregerstrom für die Synchronmaschine liefern kann. Somit kann das System im Fall eines Blackouts ohne externe Versorgung (Erregung) hochgefahren werden. Für unsere Anwendung wurde jedoch ein Spartransformator mit einem Gleichrichter für die Erregung verwendet.\\
-Die elektrisch erregte Synchronmaschine (SM) ist mechanisch an eine Gleichstrommaschine (GSM) gekoppelt. Dabei handelt es sich um eine Nebenschluss-Gleichstrommaschine, die über ein starres Gleichspannungsnetz (Batterie) versorgt wird. Beim Einschalten ist darauf zu achten, dass der Einschaltstrom durch einen Anlaufwiderstand $R_V$ begrenzt wird, um eine Beschädigung der Laboreinrichtung (Maschine, Zuleitungen, etc.) zu vermeiden. Nachdem die Maschine hoch gefahren ist, wird der Anlaufwiderstand kurzgeschlossen und die Erregung über den Erregerwiderstand $R_E$ eingestellt (für den Anlaufvorgang wird $R_E$ auf ein Minimum eingestellt, um bei gegebenem Ankerstrom $I_A$ maximales Anzugsmoment zu erhalten).
+Die elektrisch erregte Synchronmaschine (SM) ist mechanisch an eine Gleichstrommaschine (GSM) gekoppelt. Dabei handelt es sich um eine Nebenschluss-Gleichstrommaschine, die über ein starres Gleichspannungsnetz (Batterie) versorgt wird (siehe Abbildung\;\ref{fig:SM_Ueberblicksschaltung}). Beim Einschalten ist darauf zu achten, dass der Einschaltstrom durch einen Anlaufwiderstand $R_V$ begrenzt wird, um eine Beschädigung der Laboreinrichtung (Maschine, Zuleitungen, etc.) zu vermeiden. Nachdem die Maschine hoch gefahren ist, wird der Anlaufwiderstand kurzgeschlossen und die Erregung über den Erregerwiderstand $R_E$ eingestellt (für den Anlaufvorgang wird $R_E$ auf ein Minimum eingestellt, um bei gegebenem Ankerstrom $I_A$ maximales Anzugsmoment zu erhalten).
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width = 0.85\textwidth, angle=0]{\currfiledir SM_Ueberblicksschaltung}
+    \caption{Schaltungsaufbau der Synchronmaschine (SM) mit Antriebsmaschine (Nebenschluss-Gleichstrommaschine, GSM).}
+    \label{fig:SM_Ueberblicksschaltung}
+\end{figure}
 \subsection{Leerlaufversuch}
+\label{subsec:leerlauf}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth, angle=0]{\currfiledir SM_Leerlauf}
+    \caption{Schaltungsaufbau zur Ermittlung der Leerlaufkennlinie der Synchronmaschine (SM).}
+    \label{fig:SM_Leerlauf}
+\end{figure}
 Beim Leerlaufversuch der SM wird ein stromloser Stator und eine konstante Drehzahl $n=n_N$ vorausgesetzt. Gemessen wird die in den Statorwicklungen induzierte Spannung (=Klemmenspannung $U_{sL}$) in Abhängigkeit des Felderregerstroms $I_f$ dar. Letzterer wird ausgehend von $I_f=0$ erhöht, bis sich eine Klemmenspannung von $U_{sL}\approx\SI{500}{\volt}$ einstellt (1. Leerlaufmessreihe) und anschließend wieder bis $I_f=0$ reduziert (2. Leerlaufmessreihe).\\
 Die Drehzahl wird über die (mechanisch) gekoppelte GSM auf eine Drehzahl von $n=n_N$ geregelt. Dazu wird die Erregung der Nebenschluss-GSM über den Vorwiderstand $R_E$ im Erregerkreis varriert bis sich die gewünschte Drehzahl einstellt und dort während der gesamten Messung gehalten. Die resultierende Leerlaufkennlinie ist in Abbildung \ref{abb:SM_Leerlaufkennlinie} zu sehen. Der charakteristische Felderregerstrom $I_{fL}$, für den
 \begin{equation*}
     \frac{U_{sL}(I_{fL})}{U_{sN}} = 1 
 \end{equation*}
 gilt, entspricht $\approx\SI{4.5}{\ampere}$. Die aufgenommenen Messwerte sind im Anhang in Tabelle \ref{tab:SM_leerlauf} dargestellt.
-%TODO: Wie von gemessener auf die berechnete Kennlinie gekommen ist, ist mir nicht ganz klar.... -> vlt weiß das einer von euch?
-
 \input{\currfiledir leerlauf.tex}
