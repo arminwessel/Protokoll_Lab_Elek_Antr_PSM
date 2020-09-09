@@ -1,0 +1,27 @@
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 10cm,
+	   xlabel=Zeit $t$,
+	   x unit = \si{\milli\second},
+	   grid=both,
+        xmin=0,
+        xmax=500,
+		ymin=290,
+		ymax=370,
+		]
+% 		\addplot[smooth,green,line width=0.3mm] table[x=t, y=omega, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir scope_20.csv};
+% 		\addlegendentry{$\omega_m$}
+% 		\addplot[smooth,blue,line width=0.3mm] table[x=t, y=id, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir scope_20.csv};
+% 		\addlegendentry{$i_d$}
+% 		\addplot[smooth,red,line width=0.3mm] table[x=t, y=iq, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir scope_20.csv};
+% 		\addlegendentry{$i_q$}
+		\addplot[smooth,orange,line width=0.3mm] table[x=t, y=uzk, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000+250] {\currfiledir scope_20.csv};
+		\addlegendentry{$U_{ZK}$}
+		\end{axis}
+	\end{tikzpicture}
+    \caption{scope 20}
+    \label{fig:scope_20}
+\end{figure}

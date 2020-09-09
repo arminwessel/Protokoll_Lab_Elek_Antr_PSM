@@ -3,7 +3,17 @@
 \subsection{Feldschwächbetrieb} 
 %Die PSM ist schlecht feldschwächbar! 
 %:D
-Ziel des Feldschächbetriebs ist es die Maschine über der Nenndrehzahl $n_N$ zu betreiben, ohne dabei die Nennstatorspannuns $U_{S,N}$ zu überschreiten. Wird eine negative $d$-Komponente des Stromes eingeprägt, bewirkt das einen Fluss der dem Fluss des Permanentmagneten entgegengesetzt ist. Durch den geringeren Flussbetrag sinkt die induzierte Spannung, und damit die Außenleiterspannung. Die $d$-Komponente des Stromes leistet keinen Beitrag zum Drehmoment. Für den Versuch wurde bei Nenndrehzahl ein bezogener Strom $i_d$ in negative Richtung eingeprägt. Dabei wurde die Außenleiterspannung $U_{AL}$ gemessen. Die Messwerte sind in Tabelle \ref{tab:PSM_feldschwaech} dargestellt.
+Ziel des Feldschächbetriebs ist es, die Maschine über die Nenndrehzahl $n_N$ hinaus zu betreiben, ohne dabei die Statornennspannung $U_{S,N}$ zu überschreiten. Wird eine negative $d$-Komponente des Statorstromes $\underline{i}_S$ eingeprägt, bewirkt das einen Fluss $\Phi_d$ der dem Fluss $\Phi_M$ des Permanentmagneten entgegengesetzt ist (Feldschwächung); siehe Statorflussverkettungsgleichung:\\
+\begin{equation*}
+     \underline{\psi}_S= \underline{\psi}_M+l_S\,\underline{i}_S
+\end{equation*}
+Durch den geringeren Flussbetrag sinkt gemäß der Statorspannungsgleichung (stationäre Verhältnisse)
+\begin{equation*}
+     \underline{u}_S=r_S\,\underline{i}_S+\frac{\mathrm{d}\underline{\psi}_S}{\mathrm{d}\tau}+\mathrm{j}\,\omega_K\,\underline{\psi}_S
+\end{equation*}
+die induzierte Spannung, und damit die Außenleiterspannung.\\
+Allerdings leistet die $d$-Komponente des Stromes keinen Beitrag zum Drehmoment, muss jedoch vom Umrichter zur Verfügung gestellt werden. Für einen Maximalbetrag (begrenzt durch Umrichter) des Stromraumzeigers, bedeutet dies jedoch eine Verringerung des Drehmomentes der Maschine und damit ihrer abgegebenen mechanischen Leistung.\\
+Für den Versuch wurde bei Nenndrehzahl ein bezogener Strom $i_d$ in negative Richtung eingeprägt. Dabei wurde die Außenleiterspannung $U_{AL}$ gemessen. Die Messwerte sind in Tabelle \ref{tab:PSM_feldschwaech} dargestellt.
 
 \begin{table}[!ht]
 \centering% Tabelle zu Kurzschluss
@@ -24,7 +34,7 @@ Ziel des Feldschächbetriebs ist es die Maschine über der Nenndrehzahl $n_N$ zu
 \begin{equation*}
     i_{d,0} = -2.855,
 \end{equation*}
-bei der die extrapolierte Außenleiterspannung Null wird. Man kann daraus auf die bezogene Induktivität der Maschine in d-Richtung schließen:
+bei der die extrapolierte Außenleiterspannung Null wird. Man kann daraus auf die bezogene Induktivität der Maschine in $d$-Richtung $l_d=x_d$ schließen:
 \begin{equation*}
     x_d = \frac{1}{|i_{d,0}|} \approx 0.35,
 \end{equation*}

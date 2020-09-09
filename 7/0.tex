@@ -9,7 +9,7 @@
 Nachdem die Maschine erfolgreich ans Netz gekoppelt wurde, wird die Potierreaktanz mit der graphischen Methode nach Fischer-Hinnen bestimmt.\\
 Zusätzlich zur Leerlauf- und Kurzschlusskennlinie wird noch der induktive Volllastpunkt $IV$ benötigt, damit alle relevanten Maschinendaten bestimmt werden können. Der Induktive Volllastpunkt ist dadurch gekennzeichnet, dass die Maschine keine Wirkleistung sondern nur Blindleistung umsetzt. Die Maschine wirkt also kapazitiv aus Sicht des Netzes.\\
 Um die Synchronmaschine in den induktiven Volllastpunkt zu bringen, wurde der Erregerstrom erhöht bis sich Nennstrom und Nennspannung einstellen. Die Verluste der Synchronmaschine werden von der GSM gedeckt, indem das Drehmoment (bzw. der Erregerstrom der GSM) so gewählt wird, dass keine Wirkleistung aufgenommen wird. Der induktive Volllastpunkt ist in Abbildung \ref{abb:Fischer_Hinnen} dargestellt und liegt bei ca. $I_{fIV} = \SI{10.4}{\ampere}$. Den Schaltungsaufbau bzw. dessen Aussschnitt für die Leistungsmessung (2-Wattmeter-Methode) stellt Abbildung\;\ref{fig:SM_Leistungsmessung} dar.\\
-Für die Bestimmung der Potierreaktanz (nach der Methode von Fischer und Hinnen) muss nun der Strom $I_{fK}= \SI{4.4}{\ampere}$ vom Strom $I_{fIV}$ subtrahiert werden und ins Diagramm eingetragen werden. Durch Parallelverschiebung der Anfangssteigung der Leerlaufkennlinie durch eben erhaltenen Punkt, kann mit dem Schnittpunkt der Leerlaufkennlinie die innere Spannung im induktiven Volllastpunkt $u_{iIV} = 1.163$ abgelesen werden. Die Höhe des entstanden Dreiecks entspricht der Potierreaktanz $x_p = 0.163$. Die Teillänge $I''_{sN}= \SI{4}{\ampere}$ wird für die Berechnung des Umrechnungsfaktor $\gamma$ benötigt:
+Für die Bestimmung der Potierreaktanz (nach der Methode von Fischer und Hinnen) muss nun der Strom $I_{fK}= \SI{4.4}{\ampere}$ vom Strom $I_{fIV}$ subtrahiert werden und ins Diagramm eingetragen werden. Durch Parallelverschiebung der Anfangssteigung der Leerlaufkennlinie durch eben erhaltenen Punkt, kann mit dem Schnittpunkt der Leerlaufkennlinie die innere Spannung im induktiven Volllastpunkt $u_{iIV} = 1.163$ abgelesen werden. Die Höhe des entstanden Dreiecks entspricht der Potierreaktanz $x_p = 0.163$. Die Teillänge $I''_{sN}= \SI{4}{\ampere}$ wird für die Berechnung des Umrechnungsfaktors $\gamma$ benötigt:
 \begin{equation*}
     \gamma = \frac{I''_{sN}}{I_{sN}} = 0.069.
 \end{equation*}
@@ -60,26 +60,28 @@ $i_{fIV}$   & $2.612$           \\ \hline
 $x_d$       & $1.69$            \\ \hline
 $x_{d0}$   & $0.97$            \\ \hline
 \end{tabular}
-\caption{berechnete charakteristische Größen}
+\caption{Berechnete charakteristische Größen}
 \label{tab:Fischer_Hinnen_berechnete_Werte}
 \end{table}
 \noindent Die synchrone Hauptfeldreaktanz $x_{dh}$ wurde abschließend als Funktion des bezogenen Magnetisierungsstroms $i_{md}$ bestimmt. Es gilt allgemein
 \begin{equation*}
     \label{eq:Hauptfeldreaktanz}
-    x_{dh} \big|_{i_{md}} = \frac{u_{iq} \big|_{i_{md}}}{i_{md}}
+    x_{dh} \big|_{i_{md}} = \frac{u_{i} \big|_{i_{md}}}{i_{md}},
 \end{equation*}
-Der bezogene Magnetisierungsstrom ist durch 
+wobei der bezogene Magnetisierungsstrom in d-Richtung gegeben ist durch 
 \begin{equation*}
-    i_{md} = i_f + i_{sd}
+    i_{md} = i_f + i_{sd}.
 \end{equation*}
-gegeben. Für den Leerlauffall gilt $i_s = 0 \rightarrow i_{sd} = 0$ und somit vereinfacht sich Gleichung \ref{eq:Hauptfeldreaktanz} zu:
+Für den Leerlauf gilt $i_s = 0 \rightarrow i_{sd} = 0$, womit sich Gleichung \ref{eq:Hauptfeldreaktanz} vereinfacht zu:
 \begin{equation*}
-        x_{dh} \big|_{i_{f}} = \frac{u_{s} \big|_{i_{f}}}{i_{f}}
+        x_{dh} \big|_{i_{f}} = \frac{u_{s} \big|_{i_{f}}}{i_{f}} \big|_{i_s=0}.
 \end{equation*}
-Der Verlauf der Hauptfeldreaktanz $x_{dh}$ ist im linearen Bereich der Leerlaufkennlinie konstant. Für steigende Felderregerströme $I_f$ kommt es durch die Sättigung des Eisens (Hauptfeldreaktanz sinkt) zu einer Abflachung der Leerlaufkennlinie. Im Bereich hoher Sättigung ist die Leerlaufkennlinie wieder annähernd linear, wodurch auch der Verlauf der Hauptfeldreaktanz wird wieder näherungsweise konstant verlaufen. Die im Punkt \ref{subsec:leerlauf} dargestellte Kennlinie 
+Damit kann aus dem Leerlaufversuch (Klemmenspannung $U_s$ gleich der inneren Spannung $U_i$) die synchrone Hauptfeldreaktanz ermittelt werden.\\
+Der Verlauf der bezogenen Hauptfeldreaktanz $x_{dh}$ ist im linearen Bereich der Leerlaufkennlinie konstant. Für steigende Felderregerströme $I_f$ (bzw. mit steigendem Magnetisierungsstrom $I_{md}$) kommt es durch die Sättigung des Eisens (Hauptfeldreaktanz sinkt) zu einer Abflachung der Leerlaufkennlinie.\\
+Im Bereich hoher Sättigung ist die Leerlaufkennlinie wieder annähernd linear, wodurch auch der Verlauf der Hauptfeldreaktanz wieder näherungsweise konstant sein wird. Dieser liegt jedoch oberhalb des Wertebereichs, der gemessen wurde (sehr hohe Felderreger- bzw. Magnetisierungsströme erforderlich). 
 
 
-In Abbildung \ref{abb:SM_hauptfeldreaktanz} kann die berechnete Kennlinie betrachtet werden. Die dazugehörigen Werte sind der Tabelle \ref{tab:Hauptfeldreaktanz} zu entnehmen.
+In Abbildung \ref{abb:SM_hauptfeldreaktanz} kann die berechnete Kennlinie betrachtet werden und die dazugehörigen Werte sind der Tabelle \ref{tab:Hauptfeldreaktanz} zu entnehmen.
 
 
 
@@ -88,17 +90,17 @@ In Abbildung \ref{abb:SM_hauptfeldreaktanz} kann die berechnete Kennlinie betrac
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-$u_s$    & $i_f$    & $x_{dh}$  \\ \hline
-0.314    & 0.25     & 1.254     \\ \hline
-0.561    & 0.5      & 1.123     \\ \hline
-0.776    & 0.75     & 1.035     \\ \hline
+$u_s$    & $i_{md}$    & $x_{dh}$  \\ \hline
+0.300    & 0.25     & 1.203     \\ \hline
+0.558    & 0.5      & 1.117     \\ \hline
+0.776    & 0.75     & 1.036     \\ \hline
 0.938    & 1        & 0.938     \\ \hline
 1.058    & 1.25     & 0.846     \\ \hline
 1.136    & 1.5      & 0.758     \\ \hline
 1.201    & 1.75     & 0.677     \\ \hline
 1.24    & 2        & 0.620   \\ \hline
 \end{tabular}
-\caption{Werte für die Hauptfeldreaktanz}
+\caption{Werte für die Berechnung der bezogenen Hauptfeldreaktanz $x_{dh}$}
 \label{tab:Hauptfeldreaktanz}
 
 \end{table}
