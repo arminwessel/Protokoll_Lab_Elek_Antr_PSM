@@ -1,5 +1,5 @@
 \subsection{Betriebszustände der Synchronmaschine}
-Um die möglichen Betriebszustände der SM zu untersuchen, wurden vier charakteristische Arbeitspunkte eingestellt. Die Synchronmaschine wurde am Netz betrieben, durch Variieren des Felderregerstromes $I_f$ der SM kann unter- bzw. übererregung eingestellt werden. Die gekoppelte GSM arbeitet abhängig vom Erregerstrom $I_E$ als Motor oder Generator. Somit kann durch Variation von $I_E$ an der GSM die Synchronmaschine in einen motorischen bzw. generatorischen Arbeitspunkt gezwungen werden.
+Um die möglichen Betriebszustände der SM zu untersuchen, wurden vier charakteristische Arbeitspunkte eingestellt. Die Synchronmaschine wurde am Netz betrieben, durch variieren des Felderregerstromes $I_f$ der SM kann Unter- bzw. Übererregung eingestellt werden. Die gekoppelte GSM arbeitet abhängig vom Erregerstrom $I_E$ als Motor oder Generator. Somit kann durch Variation von $I_E$ an der GSM die Synchronmaschine in einen motorischen bzw. generatorischen Arbeitspunkt gezwungen werden.
 \subsubsection{Messungen}
 % SM und GSM
  Zum Einstellen der Arbeitspunkte wurden analoge Instrumente verwendet, die eingestellten Werte sind in Tabelle \ref{tab:betrzustaende_analoge_messungen} dargestellt.
@@ -20,7 +20,7 @@ Generatorisch übererregt  & -24      & -28       & 0.76 ind                    
 \label{tab:betrzustaende_analoge_messungen}
 \end{table}
 
-\noindent Nach Einstellen der Arbeitspunkte wurden zwei digitale Wattmeter verwendet um Außenleiterströme, Außenleiterspannungen und die von der SM aufgenommene Wirkleistung zu messen. Die aufgezeichneten Werte sind in Tabelle \ref{tab:betrzustaende_digitale_messungen} dargestellt. Die Wirkleistung $P$ wird entsprechend der 2-Wattmeter-Methode berechnet:
+\noindent Nach Einstellen der Arbeitspunkte wurden zwei digitale Wattmeter verwendet um Außenleiterströme, Außenleiterspannungen und die von der SM aufgenommene Wirkleistung zu messen (siehe auch Schaltungsausschnitt in Abbildung\;\ref{fig:SM_Leistungsmessung}). Die aufgezeichneten Werte sind in Tabelle \ref{tab:betrzustaende_digitale_messungen} dargestellt. Die Wirkleistung $P$ wird entsprechend der 2-Wattmeter-Methode berechnet:
 \begin{equation*}
     P_{ges}=P_1+P_2.
 \end{equation*}
@@ -137,7 +137,7 @@ ergibt. Da der magnetisierend wirkende Strom per Definition der inneren Spannung
 \begin{equation*}
     \zuv{i}_m=i_m(u_S) \angle (arg(\zuv{u}_i)-90\degree)
 \end{equation*}
-angegeben werden. Aus der Knotenregel folgt nun der berechnete wert des Felderregerstromes
+angegeben werden. Aus der Knotenregel folgt nun der berechnete Wert des Felderregerstromes
 \begin{equation*}
     \zuv{i}_f=\zuv{i}_m-\zuv{i}_S, 
 \end{equation*}
@@ -147,11 +147,11 @@ wobei der Zusammenhang zwischen bezogener und nicht bezogener Größe als
 \end{equation*}
 gegeben ist.
 
-\noindent Der Polradwinkel $\vartheta$ ist definiert als der Winkel zwischen Statorspannung und Polradspannug, jedoch findet sich dieser Winkel auch zwischen der reelen $u$-Achse und dem Felderregerstromzeiger wieder:
+\noindent Der Polradwinkel $\vartheta$ ist definiert als der Winkel zwischen Statorspannung und Polradspannung, jedoch findet sich dieser Winkel auch zwischen der reelen $u$-Achse und dem Felderregerstromzeiger wieder:
 \begin{equation*}
     \vartheta=-\mathrm{arg}(\zuv{i}_f)
 \end{equation*}
-Aus der Ähnlichkeit der beiden von den Zeigern gebildeten Dreicke
+Aus der Ähnlichkeit der beiden von den Zeigern gebildeten Dreiecke
 \begin{equation*}
     u_P : j x_{dh} i_s : u_i = i_f : i_s : i_m
 \end{equation*}
@@ -219,7 +219,7 @@ Ebenfalls zu beachten sind die Unterschiede zwischen berechnetem und gemessenem 
     \label{tab:berechnete_werte_betrzustaende}
 \end{table}
 %
-Die Zeigerdiagramme sind in Abbildung \ref{fig:vier_zeigerdiagramme} dargestellt. Es ist gut erkennbar, dass für die übererregten (kapazitiv) Zustände der Betrag der Polradspannung $u_P$ größer als der Betrag der Statorspannung $u_S$ ist. Außerdem gut erkennbar ist dass die Winkel $\varphi_S$ und $\vartheta$ entsprechend der Tabelle \ref{tab:charak_winkel_bertzust} zu liegen kommen.
+Die Zeigerdiagramme sind in Abbildung \ref{fig:vier_zeigerdiagramme} dargestellt. Es ist gut erkennbar, dass für die übererregten Zustände der Betrag der Polradspannung $u_P$ größer als der Betrag der Statorspannung $u_S$ ist. Außerdem gut erkennbar ist dass die Winkel $\varphi_S$ und $\vartheta$ entsprechend der Tabelle \ref{tab:charak_winkel_bertzust} zu liegen kommen.
 
 \begin{table}[]
 \centering
